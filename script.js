@@ -126,7 +126,7 @@ window.onload = () => {
 const soundToggleBtn = document.getElementById("sound-toggle");
 soundToggleBtn.addEventListener("click", () => {
   soundOn = !soundOn;
-  soundToggleBtn.textContent = soundOn ? "🔊" : "🔇";
+  soundToggleBtn.textContent = soundOn ? "ON" : "OFF";
 });
 
 function safePlay(audioElement) {
