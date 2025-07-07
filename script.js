@@ -12,7 +12,6 @@ window.onload = () => {
     const tsuntsunSound = document.getElementById("tsuntsun-sound");
     const godSound = document.getElementById("god-sound");
     const evilSound = document.getElementById("evil-sound");
-    const darkSound = document.getElementById("dark-sound"); // ← 追加（邪神用）
     const deathSound = document.getElementById("death-sound");
   
     // 音量
