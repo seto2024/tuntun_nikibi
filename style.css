@@ -17,10 +17,10 @@ body {
   }
   
   .title {
-    font-size: 2.5em;
+    font-size: 3em;
     font-weight: bold;
     color: #FF69B4; /* 明るいピンク色 */
-    margin: 10px 0;
+    margin-top: 40px;
     text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.5); /* 影をつけて立体感を出す */
     transition: transform 0.3s; /* アニメーション効果 */
 }
@@ -89,9 +89,10 @@ body {
   }
 
   /* 👇 スマホ画面（600px以下）になったらこのスタイルに切り替える */
-@media (max-width: 600px) {
-    .nikibi-img {
-      width: 50vw;
+  @media (max-width: 600px) {
+    .title {
+      font-size: 6vw;
+      margin-top: 20px; /* ←これ追加！スマホでは余白を少なく */
     }
   
     .title {
@@ -107,23 +108,28 @@ body {
       padding: 10px 20px;
     }
     .sound-btn {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #ffe066;
-        border: none;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        font-size: 24px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        cursor: pointer;
-        transition: background-color 0.3s;
-        z-index: 1000;
-      }
-      
-      .sound-btn:hover {
-        background-color: #ffcc00;
-      }
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #ffe066;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: background-color 0.3s;
+      z-index: 1000;
+    }
+    
+    .sound-btn:hover {
+      background-color: #ffcc00;
+    }
   }
   
