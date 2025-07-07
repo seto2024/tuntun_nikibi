@@ -74,4 +74,23 @@ body {
     background-color: #585858;
   }
 
+  /* 👇 スマホ画面（600px以下）になったらこのスタイルに切り替える */
+@media (max-width: 600px) {
+    .nikibi-img {
+      width: 50vw;
+    }
+  
+    .title {
+      font-size: 6vw;
+    }
+  
+    .bubble {
+      font-size: 4.5vw;
+    }
+  
+    .button-area button {
+      font-size: 4.5vw;
+      padding: 10px 20px;
+    }
+  }
   
