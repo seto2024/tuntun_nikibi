@@ -9,9 +9,15 @@ const msg = document.getElementById("message");
 const shareBtn = document.getElementById("share-button");
 const retryBtn = document.getElementById("retry-button");
 const tsuntsunSound = document.getElementById("tsuntsun-sound");
+const godSound = document.getElementById("god-sound");
+const evilSound = document.getElementById("evil-sound");
+const deathSound = document.getElementById("death-sound");
 
 // 音量の設定（0.0〜1.0）
 tsuntsunSound.volume = 0.5;
+godSound.volume = 0.3;
+evilSound.volum =0.3;
+deathSound.volum =0.3;
 
 // 右クリックや長押しメニューを無効化
 document.addEventListener("contextmenu", (e) => {
@@ -24,10 +30,17 @@ nikibiImg.addEventListener("click", () => {
   
   count++;
   
-  // 音を鳴らす（何度でも鳴らせるように）
-  tsuntsunSound.currentTime = 0;
-  tsuntsunSound.play();
-
+ // 特定の進化段階ではぷよん音を鳴らさない
+if (
+    currentRank !== "神ニキビ" &&
+    currentRank !== "超神ニキビ" &&
+    currentRank !== "邪神ニキビ" &&
+    currentRank !== "死神ニキビ"
+  ) {
+    tsuntsunSound.currentTime = 0;
+    tsuntsunSound.play();
+  }
+  
   if (firstTouch) {
     shareBtn.style.display = "inline-block";
     firstTouch = false;
@@ -76,6 +89,11 @@ function updateState() {
     nikibiImg.src = "nikibi4.jpg";
     msg.textContent = "神ニキビ 降臨…✨";
     currentRank = "神ニキビ";
+    
+ // 特別な音を鳴らす
+ godSound.currentTime = 0;
+ godSound.play();
+
     locked = true;
     setTimeout(() => {
       locked = false;
@@ -88,11 +106,20 @@ function updateState() {
     nikibiImg.src = "nikibi6.jpg";
     msg.textContent = "やりすぎた…邪神ニキビが誕生してしまった…";
     currentRank = "邪神ニキビ";
+
+     // 邪神ニキビの音
+  evilSound.currentTime = 0;
+  evilSound.play();
+  
   } else if (count >= 200) {
     nikibiImg.src = "nikibi7.jpg";
     msg.textContent = "……死神ニキビ現る。すべてが終わった。";
     nikibiImg.style.pointerEvents = "none";
     currentRank = "死神ニキビ";
+
+      // 死神ニキビの音
+  deathSound.currentTime = 0;
+  deathSound.play();
   }
 }
 };
