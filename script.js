@@ -38,10 +38,7 @@ window.onload = () => {
       } else if (count >= 20 && count < 80) {
         evilSound.currentTime = 0;
         evilSound.play();
-      } else if (count >= 80 && count < 100) {
-        darkSound.currentTime = 0;
-        darkSound.play();
-      } else if (count >= 200) {
+      } else if (count === 200) {
         deathSound.currentTime = 0;
         deathSound.play();
       } else {
