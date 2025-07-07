@@ -113,7 +113,7 @@ body {
   
     .button-area {
       position: fixed;
-      bottom: 50px;
+      bottom: 5px;
       left: 50%;
       transform: translateX(-50%);
       display: none; /* 最初は非表示 */
