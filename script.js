@@ -24,15 +24,18 @@ window.onload = () => {
       e.preventDefault();
     });
   
+    let lastRank = ""; // ← 追加：前回のランクを保存
+
     nikibiImg.addEventListener("click", () => {
-        if (locked) return;
-      
-        count++;
-      
-        // 先に状態更新（currentRankを更新）
-        updateState();
-      
-        // 音の切り替え：currentRankで判断
+      if (locked) return;
+    
+      count++;
+    
+      // 状態更新して currentRank を変更
+      updateState();
+    
+      // ランクが変わったときだけ音を鳴らす！
+      if (currentRank !== lastRank) {
         switch (currentRank) {
           case "神ニキビ":
             godSound.currentTime = 0;
@@ -47,16 +50,25 @@ window.onload = () => {
             deathSound.play();
             break;
           default:
+            // 普通のぷよん音
             tsuntsunSound.currentTime = 0;
             tsuntsunSound.play();
         }
-      
-        if (firstTouch) {
-          shareBtn.style.display = "inline-block";
-          firstTouch = false;
-        }
-      
-        retryBtn.style.display = "inline-block";
+      } else {
+        // ランクが変わってないなら毎回ぷよん音
+        tsuntsunSound.currentTime = 0;
+        tsuntsunSound.play();
+      }
+    
+      // 最後にランクを更新
+      lastRank = currentRank;
+    
+      if (firstTouch) {
+        shareBtn.style.display = "inline-block";
+        firstTouch = false;
+      }
+    
+      retryBtn.style.display = "inline-block";
     });
   
     shareBtn.addEventListener("click", () => {
@@ -98,11 +110,11 @@ window.onload = () => {
         setTimeout(() => {
           locked = false;
         }, 3000);
-      } else if (count < 80) {
-        nikibiImg.src = "nikibi5.jpg";
-        msg.textContent = "神のオーラが…さらに…！？";
-        currentRank = "悪神ニキビ";
       } else if (count < 100) {
+        nikibiImg.src = "nikibi5.jpg";
+        msg.textContent = "あ…悪くなっちゃった…！";
+        currentRank = "悪神ニキビ";
+      } else if (count < 120) {
         nikibiImg.src = "nikibi6.jpg";
         msg.textContent = "やりすぎた…邪神ニキビが誕生してしまった…";
         currentRank = "邪神ニキビ";
