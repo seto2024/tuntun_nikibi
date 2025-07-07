@@ -1,4 +1,6 @@
 body {
+    touch-action: manipulation;
+    overscroll-behavior: none;
     font-family: 'Arial Rounded MT Bold', 'Helvetica', sans-serif;
     background-color: #fff0f0;
     margin: 0;
