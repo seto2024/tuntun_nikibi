@@ -35,7 +35,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-top: 40px;
-    height: calc(100vh - 40px);
+    min-height: 100dvh;
     padding: 10px;
     box-sizing: boader-box;
     gap: 10px;
