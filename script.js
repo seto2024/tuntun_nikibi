@@ -19,7 +19,7 @@ window.onload = () => {
     godSound.volume = 0.3;
     evilSound.volume = 0.3;
     deathSound.volume = 0.3;
-    
+
     document.querySelector(".button-area").style.display = "none";
   
     document.addEventListener("contextmenu", (e) => {
@@ -64,8 +64,9 @@ window.onload = () => {
       if (firstTouch) {
         document.querySelector(".button-area").style.display = "flex";
         firstTouch = false;
+        shareBtn.style.display = "inline-block";
       }
-    
+      
       retryBtn.style.display = "inline-block";
     });
   
