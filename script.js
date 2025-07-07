@@ -25,33 +25,38 @@ window.onload = () => {
     });
   
     nikibiImg.addEventListener("click", () => {
-      if (locked) return;
-  
-      count++;
-  
-      // 音を再生（クリック時に1回だけ）
-      if (count === godThreshold) {
-        godSound.currentTime = 0;
-        godSound.play();
-      } else if (count >= 20 && count < 80) {
-        evilSound.currentTime = 0;
-        evilSound.play();
-      } else if (count === 200) {
-        deathSound.currentTime = 0;
-        deathSound.play();
-      } else {
-        tsuntsunSound.currentTime = 0;
-        tsuntsunSound.play();
-      }
-  
-      if (firstTouch) {
-        shareBtn.style.display = "inline-block";
-        firstTouch = false;
-      }
-  
-      retryBtn.style.display = "inline-block";
-  
-      updateState();
+        if (locked) return;
+      
+        count++;
+      
+        // 先に状態更新（currentRankを更新）
+        updateState();
+      
+        // 音の切り替え：currentRankで判断
+        switch (currentRank) {
+          case "神ニキビ":
+            godSound.currentTime = 0;
+            godSound.play();
+            break;
+          case "悪神ニキビ":
+            evilSound.currentTime = 0;
+            evilSound.play();
+            break;
+          case "死神ニキビ":
+            deathSound.currentTime = 0;
+            deathSound.play();
+            break;
+          default:
+            tsuntsunSound.currentTime = 0;
+            tsuntsunSound.play();
+        }
+      
+        if (firstTouch) {
+          shareBtn.style.display = "inline-block";
+          firstTouch = false;
+        }
+      
+        retryBtn.style.display = "inline-block";
     });
   
     shareBtn.addEventListener("click", () => {
