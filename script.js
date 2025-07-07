@@ -19,6 +19,8 @@ window.onload = () => {
     godSound.volume = 0.3;
     evilSound.volume = 0.3;
     deathSound.volume = 0.3;
+    
+    document.querySelector(".button-area").style.display = "none";
   
     document.addEventListener("contextmenu", (e) => {
       e.preventDefault();
@@ -60,7 +62,7 @@ window.onload = () => {
       lastRank = currentRank;
     
       if (firstTouch) {
-        shareBtn.style.display = "inline-block";
+        document.querySelector(".button-area").style.display = "flex";
         firstTouch = false;
       }
     

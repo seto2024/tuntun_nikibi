@@ -11,7 +11,7 @@ body {
   html, body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden; /* スクロールを無効にする */
     touch-action: manipulation; /* タップの挙動を制御 */
   }
@@ -20,7 +20,7 @@ body {
     font-size: 3em;
     font-weight: bold;
     color: #FF69B4; /* 明るいピンク色 */
-    margin-top: 40px;
+    margin: 20px 0 10px;
     text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.5); /* 影をつけて立体感を出す */
     transition: transform 0.3s; /* アニメーション効果 */
 }
@@ -33,11 +33,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     margin-top: 40px;
-    min-height: 100dvh;
-    padding: 10px;
-    box-sizing: boader-box;
+    padding-bottom: 200px;
+    min-height: 100vh;
+    box-sizing: border-box;
     gap: 10px;
   }
   
@@ -88,24 +87,40 @@ body {
     background-color: #585858;
   }
 
+  .button-area {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none; /* 最初は非表示 */
+    gap: 10px;
+    z-index: 999;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   /* 👇 スマホ画面（600px以下）になったらこのスタイルに切り替える */
   @media (max-width: 600px) {
-    .title {
-      font-size: 6vw;
-      margin-top: 20px; /* ←これ追加！スマホでは余白を少なく */
-    }
   
     .title {
-      font-size: 6vw;
+      font-size: 7vw;
+      margin-top: 30px;
     }
   
     .bubble {
       font-size: 4.5vw;
     }
   
-    .button-area button {
-      font-size: 4.5vw;
-      padding: 10px 20px;
+    .button-area {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none; /* 最初は非表示 */
+      gap: 10px;
+      z-index: 999;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .sound-btn {
       position: fixed;
