@@ -1,4 +1,4 @@
-let count = 0;
+window.onload = () => {let count = 0;
 let locked = false;
 let firstTouch = true;
 let currentRank = "普通ニキビ";
@@ -95,3 +95,4 @@ function updateState() {
     currentRank = "死神ニキビ";
   }
 }
+};
