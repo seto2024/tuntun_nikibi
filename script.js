@@ -19,7 +19,6 @@ window.onload = () => {
     tsuntsunSound.volume = 0.5;
     godSound.volume = 0.3;
     evilSound.volume = 0.3;
-    darkSound.volume = 0.3;
     deathSound.volume = 0.3;
   
     document.addEventListener("contextmenu", (e) => {
