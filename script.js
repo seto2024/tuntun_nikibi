@@ -37,27 +37,23 @@ window.onload = () => {
       // ランクが変わったときだけ音を鳴らす！
       if (currentRank !== lastRank) {
         switch (currentRank) {
-          case "神ニキビ":
-            godSound.currentTime = 0;
-            godSound.play();
-            break;
-          case "悪神ニキビ":
-            evilSound.currentTime = 0;
-            evilSound.play();
-            break;
-          case "死神ニキビ":
-            deathSound.currentTime = 0;
-            deathSound.play();
-            break;
-          default:
-            // 普通のぷよん音
-            tsuntsunSound.currentTime = 0;
-            tsuntsunSound.play();
-        }
+            case "神ニキビ":
+              safePlay(godSound);
+              break;
+            case "悪神ニキビ":
+              safePlay(evilSound);
+              break;
+            case "死神ニキビ":
+              safePlay(deathSound);
+              break;
+            default:
+              safePlay(tsuntsunSound);
+          }
+          
       } else {
         // ランクが変わってないなら毎回ぷよん音
         tsuntsunSound.currentTime = 0;
-        tsuntsunSound.play();
+        safePlay(tsuntsunSound);
       }
     
       // 最後にランクを更新
@@ -125,4 +121,19 @@ window.onload = () => {
         currentRank = "死神ニキビ";
       }
     }
+    let soundOn = true;
+
+const soundToggleBtn = document.getElementById("sound-toggle");
+soundToggleBtn.addEventListener("click", () => {
+  soundOn = !soundOn;
+  soundToggleBtn.textContent = soundOn ? "🔊" : "🔇";
+});
+
+function safePlay(audioElement) {
+    if (!soundOn) return; // ← ミュート時は再生しない
+  
+    audioElement.pause(); // 再生中なら止める
+    audioElement.currentTime = 0; // 巻き戻す
+    audioElement.play(); // 再生！
+  }
   };
