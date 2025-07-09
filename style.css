@@ -2,7 +2,10 @@ body {
     touch-action: manipulation;
     overscroll-behavior: none;
     font-family: 'Arial Rounded MT Bold', 'Helvetica', sans-serif;
-    background-color: #fff0f0;
+    background-image: url("hadapink.PNG");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -44,7 +47,8 @@ body {
     width: 300px;
     height: auto;
     cursor: pointer;
-    margin-top: 20px;
+    margin-Top: 20px;
+    
   }
   
   .bubble {
@@ -98,6 +102,17 @@ body {
     flex-wrap: wrap;
     justify-content: center;
   }
+  @keyframes shake {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    25%  { transform: translate(2px, 1px) rotate(1deg); }
+    50%  { transform: translate(-2px, -2px) rotate(-1deg); }
+    75%  { transform: translate(1px, 2px) rotate(1deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+  
+  .shake {
+    animation: shake 0.3s ease-in-out;
+  }
 
   /* 👇 スマホ画面（600px以下）になったらこのスタイルに切り替える */
   @media (max-width: 600px) {
@@ -146,5 +161,6 @@ body {
     .sound-btn:hover {
       background-color: #ffcc00;
     }
+    
   }
   
